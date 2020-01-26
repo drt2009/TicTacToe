@@ -21,5 +21,32 @@ public class GameTest {
         assertEquals(new Board(), game.getBoard());
     }
 
+    @Test
+    public void testAddXToBoardSpot0(){
+        Board expected = new Board();
+        expected.addX(0);
+
+        game.start();
+        game.addX(0);
+
+        assertEquals(expected, game.getBoard());
+    }
+
+    @Test
+    public void testAddOToBoardSpot0(){
+        Board expected = new Board();
+        expected.addO(0);
+
+        game.start();
+        game.addO(0);
+
+        assertEquals(expected, game.getBoard());
+    }
+
+    @Test
+    public void testIsGameWonByX(){
+
+    }
+
 
 }
