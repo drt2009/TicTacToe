@@ -1,10 +1,11 @@
 package drt2009.ticTacToe;
 
 
+import drt2009.ticTacToe.exception.GameAlreadyFull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GameTest {
 
@@ -44,8 +45,49 @@ public class GameTest {
     }
 
     @Test
-    public void testIsGameWonByX(){
+    public void addPlayerToEmptyList(){
+        Player expected = new Player("Expected");
+        game.addPlayer(expected);
 
+        assertTrue(game.getPlayers().contains(expected));
+    }
+
+    @Test
+    public void addPlayerToListWithOneOtherPlayer(){
+        game.addPlayer(new Player("I am Already Here"));
+        Player expected = new Player("Expected");
+        game.addPlayer(expected);
+
+        assertTrue(game.getPlayers().contains(expected));
+        assertEquals(2,game.getPlayers().size());
+    }
+
+    @Test
+    public void testAddPlayerToFullGame(){
+        game.addPlayer(new Player("I am Already Here"));
+        game.addPlayer(new Player("I am Here too"));
+        assertThrows(GameAlreadyFull.class, () -> {game.addPlayer(new Player("Why can't I Play"));});
+    }
+
+    @Test
+    public void testStartNewBoard(){
+        game.start();
+        game.addX(0);
+        game.start();
+
+        Board expected = new Board();
+
+        assertEquals(expected, game.getBoard());
+    }
+
+    @Test
+    public void testIsGameWonByXAcrossTop(){
+        game.start();
+        game.addX(0);
+        game.addX(1);
+        game.addX(2);
+
+        assertTrue(game.isWon());
     }
 
 
