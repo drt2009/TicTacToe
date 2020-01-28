@@ -2,7 +2,6 @@ package drt2009.ticTacToe;
 
 
 import drt2009.ticTacToe.exception.GameAlreadyFull;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
