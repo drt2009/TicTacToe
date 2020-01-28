@@ -35,12 +35,8 @@ public class Game {
         return board;
     }
 
-    public void addX(int i) {
-        board.addX(i);
-    }
-
-    public void addO(int i) {
-        board.addO(i);
+    public void addToBoard(int xOrO, int boardPosition) {
+        board.addToBoard(xOrO, boardPosition);
     }
 
     public boolean isWon() {

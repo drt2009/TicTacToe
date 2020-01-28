@@ -26,14 +26,9 @@ public class Board {
         boardSpaces = new int[9];
     }
 
-    public void addX(int boardPlace) {
+    public void addToBoard(int xOrO, int boardPlace) {
         validateAdd(boardPlace);
-        boardSpaces[boardPlace] = X;
-    }
-
-    public void addO(int boardPlace) {
-        validateAdd(boardPlace);
-        boardSpaces[boardPlace] = O;
+        boardSpaces[boardPlace] = xOrO;
     }
 
     private void validateAdd(int boardPlace) {
@@ -96,4 +91,6 @@ public class Board {
 
        return false;
     }
+
+
 }
