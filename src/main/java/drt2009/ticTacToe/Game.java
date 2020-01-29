@@ -1,6 +1,7 @@
 package drt2009.ticTacToe;
 
 import drt2009.ticTacToe.exception.GameAlreadyFull;
+import drt2009.ticTacToe.exception.NotEnoughPlayersException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,9 @@ public class Game {
     }
 
     public void start() {
+        if(players.size()!=2){
+            throw new NotEnoughPlayersException();
+        }
         board = new Board();
     }
 
